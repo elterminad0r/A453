@@ -35,4 +35,4 @@ in binary format, and decode it (by this command).
 
     $ python lossless_compression.py --input ../text/rom_ju_intro.txt  | python lossless_decompression.py
 
-Yes, I have tested my lossless algorithm on the works of Shakespeare. It produces a lossless compressive ratio of about 40%. Its performance and memory usage complexity is poor as it has to read lots into memory to optimise the prefix encoding.
+Yes, I have tested my lossless algorithm on the works of Shakespeare. It produces a lossless compressive ratio of about 39% (and a lossy compression ratio of 28%). Its performance and memory usage complexity is poor as it has to read lots into memory to optimise the prefix encoding.
