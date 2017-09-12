@@ -1,7 +1,7 @@
 import string
 import sys
 
-from prefix_decompression import BinaryReader, EndOfBinaryFile, binary_to_int
+from prefix_decompression import BinaryReader, EndOfBinaryFile, from_base
 
 def read_pointers(in_binary):
     words = {ind: i for ind, i in enumerate(string.printable)}
@@ -11,12 +11,12 @@ def read_pointers(in_binary):
     current_bits = words_size.bit_length()
     max_key = (1 << current_bits)
 
-    w = words[binary_to_int(in_binary.read_bits(current_bits))]
+    w = words[from_base(2, in_binary.read_bits(current_bits))]
     yield w
 
     try:
         while True:
-            i = binary_to_int(in_binary.read_bits(current_bits))
+            i = from_base(2, in_binary.read_bits(current_bits))
 
             if i in words:
                 result = words[i]
